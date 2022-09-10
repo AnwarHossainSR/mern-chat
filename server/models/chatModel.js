@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
 
-const ChatSchema = new mongoose.Schema(
-  {
-    members: {
-      type: Array,
-    },
+const ChatSchema = new mongoose.Schema({
+  members : {
+    type : Array,
   },
-  {
-    timestamps: true,
-  }
-);
+},
+                                       {
+                                         timestamps : true,
+                                       });
 
 const ChatModel = mongoose.model("Chat", ChatSchema);
 export default ChatModel;
