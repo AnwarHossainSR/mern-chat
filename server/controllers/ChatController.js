@@ -2,7 +2,7 @@ import ChatModel from "../models/chatModel.js";
 
 export const createChat = async (req, res) => {
   const newChat = new ChatModel({
-    members: [req.body.senderId, req.body.receiverId],
+    members : [ req.body.senderId, req.body.receiverId ],
   });
   try {
     const result = await newChat.save();
@@ -15,7 +15,7 @@ export const createChat = async (req, res) => {
 export const userChats = async (req, res) => {
   try {
     const chat = await ChatModel.find({
-      members: { $in: [req.params.userId] },
+      members : {$in : [ req.params.userId ]},
     });
     res.status(200).json(chat);
   } catch (error) {
@@ -26,7 +26,7 @@ export const userChats = async (req, res) => {
 export const findChat = async (req, res) => {
   try {
     const chat = await ChatModel.findOne({
-      members: { $all: [req.params.firstId, req.params.secondId] },
+      members : {$all : [ req.params.firstId, req.params.secondId ]},
     });
     res.status(200).json(chat)
   } catch (error) {
