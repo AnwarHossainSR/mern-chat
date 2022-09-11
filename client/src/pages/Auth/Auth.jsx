@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logIn, signUp } from '../../actions/AuthActions.js';
-import Logo from '../../img/logo.png';
-import './Auth.css';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logIn, signUp } from "../../actions/AuthActions.js";
+import Logo from "../../img/logo.png";
+import "./Auth.css";
 
 const Auth = () => {
   const initialState = {
-    firstname: '',
-    lastname: '',
-    username: '',
-    password: '',
-    confirmpass: '',
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+    confirmpass: "",
   };
   const loading = useSelector((state) => state.authReducer.loading);
   const navigate = useNavigate();
@@ -49,13 +49,13 @@ const Auth = () => {
   };
 
   return (
-    <div className='Auth'>
+    <div className="Auth">
       {/* left side */}
 
-      <div className='a-left'>
-        <img src={Logo} alt='' />
+      <div className="a-left">
+        <img src={Logo} alt="" />
 
-        <div className='Webname'>
+        <div className="Webname">
           <h1>Mern Chat</h1>
           <h6>Messaging with your friends</h6>
         </div>
@@ -63,26 +63,26 @@ const Auth = () => {
 
       {/* right form side */}
 
-      <div className='a-right'>
-        <form className='infoForm authForm' onSubmit={handleSubmit}>
-          <h3>{isSignUp ? 'Register' : 'Login'}</h3>
+      <div className="a-right">
+        <form className="infoForm authForm" onSubmit={handleSubmit}>
+          <h3>{isSignUp ? "Register" : "Login"}</h3>
           {isSignUp && (
             <div>
               <input
                 required
-                type='text'
-                placeholder='First Name'
-                className='infoInput'
-                name='firstname'
+                type="text"
+                placeholder="First Name"
+                className="infoInput"
+                name="firstname"
                 value={data.firstname}
                 onChange={handleChange}
               />
               <input
                 required
-                type='text'
-                placeholder='Last Name'
-                className='infoInput'
-                name='lastname'
+                type="text"
+                placeholder="Last Name"
+                className="infoInput"
+                name="lastname"
                 value={data.lastname}
                 onChange={handleChange}
               />
@@ -92,10 +92,10 @@ const Auth = () => {
           <div>
             <input
               required
-              type='text'
-              placeholder='Username'
-              className='infoInput'
-              name='username'
+              type="text"
+              placeholder="Username"
+              className="infoInput"
+              name="username"
               value={data.username}
               onChange={handleChange}
             />
@@ -103,20 +103,20 @@ const Auth = () => {
           <div>
             <input
               required
-              type='password'
-              className='infoInput'
-              placeholder='Password'
-              name='password'
+              type="password"
+              className="infoInput"
+              placeholder="Password"
+              name="password"
               value={data.password}
               onChange={handleChange}
             />
             {isSignUp && (
               <input
                 required
-                type='password'
-                className='infoInput'
-                name='confirmpass'
-                placeholder='Confirm Password'
+                type="password"
+                className="infoInput"
+                name="confirmpass"
+                placeholder="Confirm Password"
                 onChange={handleChange}
               />
             )}
@@ -124,11 +124,11 @@ const Auth = () => {
 
           <span
             style={{
-              color: 'red',
-              fontSize: '12px',
-              alignSelf: 'flex-end',
-              marginRight: '5px',
-              display: confirmPass ? 'none' : 'block',
+              color: "red",
+              fontSize: "12px",
+              alignSelf: "flex-end",
+              marginRight: "5px",
+              display: confirmPass ? "none" : "block",
             }}
           >
             *Confirm password is not same
@@ -136,9 +136,9 @@ const Auth = () => {
           <div>
             <span
               style={{
-                fontSize: '12px',
-                cursor: 'pointer',
-                textDecoration: 'underline',
+                fontSize: "12px",
+                cursor: "pointer",
+                textDecoration: "underline",
               }}
               onClick={() => {
                 resetForm();
@@ -146,15 +146,15 @@ const Auth = () => {
               }}
             >
               {isSignUp
-                ? 'Already have an account Login'
+                ? "Already have an account Login"
                 : "Don't have an account Sign up"}
             </span>
             <button
-              className='button infoButton'
-              type='Submit'
+              className="button infoButton"
+              type="Submit"
               disabled={loading}
             >
-              {loading ? 'Loading...' : isSignUp ? 'SignUp' : 'Login'}
+              {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
             </button>
           </div>
         </form>
